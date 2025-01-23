@@ -19,18 +19,13 @@ source "$SCRIPT_DIR/utils.sh"
 update_system
 
 # Install vim-plug
-check_package_installed "nvim"
-if [ $? -ne 0 ]; then
-  echo "Installing vim-plug..."
-  mkdir -p "$NVIM_AUTOLOAD_DIR"
-  curl -fLo "$NVIM_AUTOLOAD_DIR/plug.vim" --create-dirs "$VIM_PLUG_URL"
-else
-  echo "nvim already installed"
-fi
+echo "Installing vim-plug..."
+mkdir -p "$NVIM_AUTOLOAD_DIR"
+curl -fLo "$NVIM_AUTOLOAD_DIR/plug.vim" --create-dirs "$VIM_PLUG_URL"
 
 # Clone the configuration repository
 if [ ! -f "$NVIM_CONFIG_DIR/init.vim" ]; then
-  echo "Cloning repository..."
+  echo "Copying init.vim"
   mkdir -p "$NVIM_CONFIG_DIR"
   cp "$SCRIPT_DIR/init.vim" "$NVIM_CONFIG_DIR/init.vim"
 fi
