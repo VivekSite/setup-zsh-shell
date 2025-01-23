@@ -123,10 +123,7 @@ add_aliases() {
 # Main script execution
 echo "Starting Zsh and Powerlevel10k installation script..."
 
-# Step 1: Install Zsh
-install_zsh
-
-# Step 2: Install Oh My Zsh
+#Install Oh My Zsh
 if [ -d "$HOME/.oh-my-zsh" ]; then
   echo "Oh My Zsh is already installed. Skipping..."
 else
